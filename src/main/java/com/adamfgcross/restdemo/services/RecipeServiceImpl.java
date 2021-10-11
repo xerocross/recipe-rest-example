@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class RecipeServiceImpl implements RecipeService {
@@ -27,5 +28,10 @@ public class RecipeServiceImpl implements RecipeService {
             recipes.add(recipe);
         }
         return recipes;
+    }
+
+    @Override
+    public Optional<Recipe> get(Long id) {
+        return recipeRepository.findById(id);
     }
 }
